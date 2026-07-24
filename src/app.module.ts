@@ -79,7 +79,7 @@ if (process.env.MCP_ENABLED === 'true') {
 // absent, so this stays inert and the Vite dev server (:2886) handles the UI. Opt out
 // explicitly with SERVE_DASHBOARD=false. The path + flags are exported so main.ts can
 // log a clear status line (served / disabled / build missing) at startup.
-export const DASHBOARD_DIST = path.resolve(__dirname, '..', '.next', 'dashboard');
+export const DASHBOARD_DIST = path.resolve(__dirname, '..', 'public', 'dashboard');
 export const dashboardServingEnabled = process.env.SERVE_DASHBOARD !== 'false';
 export const dashboardBuildPresent = fs.existsSync(path.join(DASHBOARD_DIST, 'index.html'));
 
@@ -88,6 +88,7 @@ if (dashboardServingEnabled && dashboardBuildPresent) {
   serveStaticModules.push(
     ServeStaticModule.forRoot({
       rootPath: DASHBOARD_DIST,
+      serveRoot: '/dashboard',
       serveStaticOptions: {
         dotfiles: 'allow',
       },
