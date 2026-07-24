@@ -18,6 +18,10 @@ const { version: pkgVersion } = JSON.parse(
 
 // https://vite.dev/config/
 export default defineConfig({
+  build: {
+    outDir: '../.next/dashboard',
+    emptyOutDir: true
+  },
   plugins: [react()],
   appType: 'spa', // Enable SPA fallback for client-side routing
   define: {
