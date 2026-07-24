@@ -88,6 +88,9 @@ if (dashboardServingEnabled && dashboardBuildPresent) {
   serveStaticModules.push(
     ServeStaticModule.forRoot({
       rootPath: DASHBOARD_DIST,
+      serveStaticOptions: {
+        dotfiles: 'allow',
+      },
       // Let Nest own these so unknown API/socket routes return real 404s/JSON rather
       // than the SPA index.html fallback (Express 5 / path-to-regexp v8 wildcard syntax).
       exclude: ['/api/{*splat}', '/socket.io/{*splat}', '/mcp', '/mcp/{*splat}'],
