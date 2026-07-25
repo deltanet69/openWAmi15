@@ -19,7 +19,7 @@ const { version: pkgVersion } = JSON.parse(
 // https://vite.dev/config/
 export default defineConfig({
   build: {
-    outDir: '../dist/dashboard',
+    outDir: 'dist',
     emptyOutDir: true
   },
   plugins: [react()],

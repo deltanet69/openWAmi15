@@ -11,6 +11,9 @@ build/
 .next/
 out/
 
+# Dashboard pre-built assets (committed so Hostinger can serve them)
+!dashboard/dist/
+
 # Testing
 coverage/
 
